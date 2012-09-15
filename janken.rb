@@ -27,11 +27,13 @@ class Ken
   GU = 0
   CHOKI = 1
   PA = 2
+  
+  attr :v
 
   def initialize(input = nil)
     # 引数無しの場合はランダム
     if input.nil?
-      @v = rand(100) % 3
+      @v = rand 3
     else
       if input.gu?
         @v = GU
@@ -54,20 +56,16 @@ class Ken
     end
   end
   
-  def value
-    @v
-  end
-  
   def fight(other)
     # 大小比較する。差が2以上の場合は小さい方に3を足して比較
-    self_value = self.value
-    other_value = other.value
+    self_value = self.v
+    other_value = other.v
     
-    if (other.value - self.value).abs > 1
-      if other.value > self.value
-        self_value = self.value + 3
+    if (other.v - self.v).abs > 1
+      if other.v > self.v
+        self_value = self.v + 3
       else
-        other_value = other.value + 3
+        other_value = other.v + 3
       end
     end
     
