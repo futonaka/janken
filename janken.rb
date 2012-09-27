@@ -1,19 +1,19 @@
 class Input < String
   
   def exit?
-    self =~ /exit|quit|q/
+    self =~ /^(exit|quit|q)$/
   end
   
   def gu?
-    self =~ /gu|g/
+    self =~ /^(gu|g)$/
   end
   
   def choki?
-    self =~ /choki|c/
+    self =~ /^(choki|c)$/
   end
   
   def pa?
-    self =~ /pa|p/
+    self =~ /^(pa|p)$/
   end
   
   def right?
