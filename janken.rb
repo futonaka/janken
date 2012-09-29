@@ -73,13 +73,25 @@ class Ken
   end
 end
 
+$win = 0
+$even = 0
+$lose = 0
+
+def exit_game
+  puts
+  puts "#{$win} wins, #{$lose} losses, #{$even} evens."
+end
+
 # enjoy!
 
 puts "input g or c or p or exit."
 
 while text = gets
   input = Input.new(text)
-  break if input.exit?
+  if input.exit?
+    exit_game
+    break
+  end
   next unless input.right?
   
   yours = Ken.new input.chomp
@@ -88,10 +100,13 @@ while text = gets
   
   case yours.fight(mine)
   when 1
+    $win += 1
     puts "you win!"
   when 0
+    $even += 1
     puts "even"
   when -1
+    $lose += 1
     puts "you lose..."
   end
 end
