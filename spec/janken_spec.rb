@@ -1,5 +1,5 @@
-describe Janken, "g $B$,F~NO$5$l$?>l9g(B" do
-  it "$B$8$c$s$1$s$NF~NOCM$,%0%&$K$J$k$3$H(B" do
+describe Janken, "g が入力された場合" do
+  it "じゃんけんの入力値がグウになること" do
     Janken.new
   end
 end
